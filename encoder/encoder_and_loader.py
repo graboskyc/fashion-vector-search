@@ -4,9 +4,9 @@ import pymongo, os, sys
 import concurrent.futures
 import random
 
-mongo_uri=os.environ['MDBURI']
-db=os.environ['MDBDB']
-collection=os.environ['MDBCOL']
+mongo_uri=os.environ['MDBURI'].rstrip()
+db=os.environ['MDBDB'].rstrip()
+collection=os.environ['MDBCOL'].rstrip()
 
 preTrainedModelName = "clip-ViT-L-14"
 directoryThatIncludesImages = (sys.argv[1])

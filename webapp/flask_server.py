@@ -7,9 +7,9 @@ import ssl
 from bson import json_util
 import json
 
-mongo_uri=os.environ['MDBURI']
-db=os.environ['MDBDB']
-collection=os.environ['MDBCOL']
+mongo_uri=os.environ['MDBURI'].rstrip()
+db=os.environ['MDBDB'].rstrip()
+collection=os.environ['MDBCOL'].rstrip()
 
 app = Flask(__name__,             
             static_url_path='', 
