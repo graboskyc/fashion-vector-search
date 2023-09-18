@@ -55,7 +55,8 @@ Another example:
 
 ## Configure database connection
 
-Please make the necessary changes to the `config/config_database.py` file by updating the database connection string, as well as the details of the database and collection.
+* Copy the `sample.env` and rename it to `.env` in the same directory
+* Edit the file to complete the server connection string, database name, and collection name
 
 ## Create the Search Index
 
@@ -90,12 +91,8 @@ Please create the search index on the collection specified in the configuration 
 
 Thousands of images have already been downloaded (Kaggle dataset) and we will run encoding on the application side and store the vectors of these images inside the database.
 
-Switch to `encoder/` folder and make sure the `images/` folder includes the image files.
-And run the `encoder_and_loader.py`
-
-```bash
-$ python encoder_and_loader.py
-```
+* Ensure the Kaggle data is in `encoder/images/` 
+* Run `./build.sh encode`
 
 It will download the pre-trained model first and then will create worker threads (It will run on 8 threads by default, you can configure this in the python file), and these threads will go through all the files under the `images/` folder and load the vectors inside the MongoDB collection.
 
@@ -108,12 +105,16 @@ Once the process is finished, you can verify the collection using the instructio
 ![05](readme_images/05.png)
 
 ## Run the Web Application to Search for Products
+### Running locally
 
-Switch to `webapp/` folder and run `flask_server.py`.
+* Execute `./build.sh local`
+* Site should be running on port 5010 on your localhost
 
-```bash
-$ python flask_server.py
-```
+### Running in docker
+* Execute `./build.sh docker`
+* Site should be running on port 5010 on your localhost
+
+### About the webapp
 
 This web application has 2 pages:
 

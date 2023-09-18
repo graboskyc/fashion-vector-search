@@ -4,8 +4,9 @@ import pymongo, os, sys
 import concurrent.futures
 import random
 
-sys.path.insert(1, '../config/')
-from config_database import mongo_uri, db, collection
+mongo_uri=os.environ['MDBURI']
+db=os.environ['MDBDB']
+collection=os.environ['MDBCOL']
 
 preTrainedModelName = "clip-ViT-L-14"
 directoryThatIncludesImages = (sys.argv[1])

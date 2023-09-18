@@ -7,8 +7,9 @@ import ssl
 from bson import json_util
 import json
 
-sys.path.insert(1, '../config/')
-from config_database import mongo_uri, db, collection
+mongo_uri=os.environ['MDBURI']
+db=os.environ['MDBDB']
+collection=os.environ['MDBCOL']
 
 app = Flask(__name__,             
             static_url_path='', 
@@ -146,4 +147,4 @@ def advanced():
     return render_template("advanced.html")
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=5010, debug=True)
+    app.run(host="0.0.0.0", port=5010, debug=True)
